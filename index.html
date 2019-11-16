@@ -1,127 +1,102 @@
----
-layout: post
----
 <html>
 
 <head>
-    <style type="text/css">
-        .tab {
-            margin-left: 40px;
-        }
-
-        .collapsible {
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-        }
-
-        .active,
-        .collapsible:hover {
-            background-color: #555;
-        }
-
-        .content {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: #f1f1f1;
-        }
-
-        .root {
-            -webkit-column-count: 3;
-            /* Old Chrome, Safari and Opera */
-            -moz-column-count: 3;
-            /* Old Firefox */
-            column-count: 3;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div="root">
-        <h1>Esoteria of code which has helped in day to day projects.</h1>
-        <button type="button" class="collapsible">Bash</button>
-        <div class="content">
-            <h3>Monitoring Disk Usage</h3>
-            <code>$ du Folder_To_Measure -sh
-                                        <br>-sh
-                                </code>
-            <br>Params:
-            <div class="tab">
-                <br><code>s</code> is sum
-                <br><code>h</code> is human readable :)
-            </div>
-
-
-            <h3>Deleting binary and object files from a compiled solution in Visual Studio</h3>
-            <div class="tab">
-                <p><code>find . -iname "bin" -o -iname "obj" | xargs rm -rf </code></p>
-                <code>find</code> - get all files and directories which match the criteria specified.
-                "<code>. </code>" - all => find all. <code>-iname</code> - case insensitive.
-                <code>"bin"</code> - look for files and directories called "bin".
-                <code>-o</code> - or
-                <code>"obj"</code> - look for files and directories called "obj".
-                <code>|</code> - pipe operator. pass the output of the previous command to the following command.
-                In this case, pass all files and directories named "bin" and "obj" to the <code>rm<code> function.
-                                    <code>rm</code> - remove
-                <code>-rf</code> - do the remove recursively, and force it.
-            </div>
-
-        </div>
-        <button type="button" class="collapsible">SQL</button>
-        <div class="content">
-            <h3>Clean DataBases</h3>
-            <code>sp_MSforeachtable @command1="print '?' DBCC DBREINDEX ('?', ' ', 80)"</code>
-            <h3>Convert column data type sql</h3>
-            <code>-- ALTER TABLE [!!!!].[dbo].[!!!!!]</code>
-            <code>--ALTER COLUMN testcol nvarchar(30);</code>
-        </div>
-        <button type="button" class="collapsible">Web Dev</button>
-        <div class="content">
-            <h3>CORS Policy Issues</h3>
-            n.b. only do this for local files - dangerous on the web.<br>
-            <code>"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"</code><br>
-
-            <code>chrome --allow-file-access-from-files</code><br>
-
-            <a>https://www.codeproject.com/Questions/1195078/How-to-fix-cross-origin-requests-are-only-supporte</a><br>
-
-            ...or use just use FireFox.
-
-        </div>
-        <button type="button" class="collapsible">Git</button>
-        <div class="content">
-            <h3>DiffBetweenBranchesGit</h3>
-            <p>git log filepath/filepath --oneline</p>
-            <h3>Echo Git Branch</h3>
-            <div class="tab">
-                <code>FOR /F "tokens=* USEBACKQ" %%F IN (`git rev-parse --abbrev-ref HEAD`) DO (<br>
-                                        SET branchName=%%F
-                                        )
-                                        ECHO %branchName%
-                                        echo %branchName% > branchName.txt</code>
+    <nav>
+        <h1>
+            <a href="/">Casualrobin</a>
+        </h1>
+        <h2>
+            Esoteria of day to day code
+        </h2>
+    </nav>
+    <div class=container style="min-height: 422px;">
+        <div id="Bash" class="tabcontent">
+            <button type="button" class="collapsible" id="Bash">Bash</button>
+            <div class="content">
+                <h3>Monitoring Disk Usage</h3>
+                <code>$ du Folder_To_Measure -sh
+                                                            <br>-sh
+                                                    </code>
+                <br>Params:
+                <div class="innertab">
+                    <br><code>s</code> is sum
+                    <br><code>h</code> is human readable :)
+                </div>
+                <h3>Deleting binary and object files from a compiled solution in Visual Studio</h3>
+                <div class="innertab">
+                    <p><code>find . -iname "bin" -o -iname "obj" | xargs rm -rf </code></p>
+                    <code>find</code> - get all files and directories which match the criteria specified.
+                    "<code>. </code>" - all => find all. <code>-iname</code> - case insensitive.
+                    <code>"bin"</code> - look for files and directories called "bin".
+                    <code>-o</code> - or
+                    <code>"obj"</code> - look for files and directories called "obj".
+                    <code>|</code> - pipe operator. pass the output of the previous command to the following command.
+                    In this case, pass all files and directories named "bin" and "obj" to the <code>rm<code> function.
+                                                        <code>rm</code> - remove
+                    <code>-rf</code> - do the remove recursively, and force it.
+                </div>
             </div>
         </div>
-        <button type="button" class="collapsible">Docker</button>
-        <div class="content">
-            <h3>docker rm all im container</h3>
-            <div class="tab">
-                <code>#!/bin/bash <br> # Delete all containers <br> docker rm $(docker ps -a -q)
-                                        <br> # Delete all images <br> docker rmi $(docker images -q)</code>
+        <div id="SQL" class="tabcontent">
+            <button type="button" class="collapsible" id="SQL">SQL</button>
+            <div class="content">
+                <h3>Clean DataBases</h3>
+                <code>sp_MSforeachtable @command1="print '?' DBCC DBREINDEX ('?', ' ', 80)"</code>
+                <h3>Convert column data type sql</h3>
+                <code>-- ALTER TABLE [!!!!].[dbo].[!!!!!]</code>
+                <code>--ALTER COLUMN testcol nvarchar(30);</code>
             </div>
         </div>
+        <div id="Web Dev" class="tabcontent">
+            <button type="button" class="collapsible" id="Web Dev">Web Dev</button>
+            <div class="content">
+                <h3>CORS Policy Issues</h3>
+                n.b. only do this for local files - dangerous on the web.<br>
+                <code>"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"</code><br>
 
+                <code>chrome --allow-file-access-from-files</code><br>
+
+                <a>https://www.codeproject.com/Questions/1195078/How-to-fix-cross-origin-requests-are-only-supporte</a><br>
+
+                ...or use just use FireFox.
+
+            </div>
         </div>
-
+        <div id="Git" class="tabcontent">
+            <button type="button" class="collapsible" id="Git">Git</button>
+            <div class="content">
+                <h3>DiffBetweenBranchesGit</h3>
+                <p>git log filepath/filepath --oneline</p>
+                <h3>Echo Git Branch</h3>
+                <div class="innertab">
+                    <code>FOR /F "tokens=* USEBACKQ" %%F IN (`git rev-parse --abbrev-ref HEAD`) DO (<br>
+                                                            SET branchName=%%F
+                                                            )
+                                                            ECHO %branchName%
+                                                            echo %branchName% > branchName.txt</code>
+                </div>
+            </div>
+        </div>
+        <div id="Docker" class="tabcontent">
+            <button type="button" class="collapsible" id="Docker">Docker</button>
+            <div class="content">
+                <h3>docker rm all im container</h3>
+                <div class="innertab">
+                    <code>#!/bin/bash <br> # Delete all containers <br> docker rm $(docker ps -a -q)
+                                                            <br> # Delete all images <br> docker rmi $(docker images -q)</code>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
+
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
@@ -136,8 +111,10 @@ layout: post
             }
         });
     }
+
+    document.getElementById("defaultOpen").click();
 </script>
 
-</html>
-    </body>
+</body>
+
 </html>
